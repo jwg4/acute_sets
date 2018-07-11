@@ -54,8 +54,6 @@ int main(int argc, char** argv) {
     nodeT* points = malloc(count * sizeof(nodeT));
     for (int i = 0; i < count; i++) {
         points[i] = find_point(points, i);
-    }
-    for (int i = 0; i < count; i++) {
         printf("%d\t%d\t%d\t%d", points[i].w, points[i].x, points[i].y, points[i].z);
         printf("\n");
     }
