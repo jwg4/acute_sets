@@ -27,6 +27,13 @@ char check_triplet(nodeT a, nodeT b, nodeT c) {
 }
 
 char check_new_point(nodeT new_point, nodeT* points, int count) {
+    for (int i = 0; i < count; i++) {
+        for (int j = i + 1; j < count; j++) {
+            if (!check_triplet(new_point, points[i], points[j])) {
+                return 0;
+            }
+        }
+    }
     return 1;
 }
 
