@@ -10,6 +10,7 @@ typedef struct node{
     struct node* left;
     struct node* right;
     char depth;
+    char valid;
 } nodeT;
 
 
@@ -39,21 +40,38 @@ char check_new_point(nodeT new_point, nodeT* points, int count) {
 
 nodeT find_point(nodeT* points, int count) {
     nodeT new_point;
-    do {
+    for (int i = 0; i < 10000; i++) {
         new_point.w = (unsigned short)rand();
         new_point.x = (unsigned short)rand();
         new_point.y = (unsigned short)rand();
         new_point.z = (unsigned short)rand();
-    } while (!check_new_point(new_point, points, count));
+        if (check_new_point(new_point, points, count)) {
+            new_point.valid = 1;
+            return new_point;
+        }
+    }
+    new_point.valid = 0;
     return new_point;
 }
 
 int main(int argc, char** argv) {
     srand(time(0));
-    int count = 10;
+    int count = 6;
     nodeT* points = malloc(count * sizeof(nodeT));
+    char found = 0;
+    nodeT point;
+    int i;
+    do {
+        for (i = 0; i < count; i++) {
+            point = find_point(points, i);
+            if (!point.valid) {
+                break;
+            }
+            points[i] = point;
+        }
+    } while (i < count);
+
     for (int i = 0; i < count; i++) {
-        points[i] = find_point(points, i);
         printf("%d\t%d\t%d\t%d", points[i].w, points[i].x, points[i].y, points[i].z);
         printf("\n");
     }
