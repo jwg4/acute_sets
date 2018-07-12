@@ -39,19 +39,17 @@ def generate_random_point(dimension, limit=65535):
 
 
 def generate_valid_set(dimension, size):
-    for bt_count in range(0, 1000):
-        l = [None] * size
-        for i in range(0, size):
-            for point_count in range(0, 1000):
-                p = generate_random_point(dimension)
-                if check_new_point(p, l[:i]):
-                    l[i] = p
-                    break
-            else:
+    l = [None] * size
+    for i in range(0, size):
+        for point_count in range(0, 1000):
+            p = generate_random_point(dimension)
+            if check_new_point(p, l[:i]):
+                l[i] = p
                 break
         else:
-            return l
-            
+            break
+    else:
+        return l
 
 
 def project(p, v):
@@ -78,7 +76,7 @@ def find_valid_projection(points, start_d, end_d):
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
 
-    for i in range(0, 1000):
+    for i in range(0, 100000):
         s5 = generate_valid_set(5, 10)
         if s5 is None:
             logging.info("Couldnt find a valid set.")
