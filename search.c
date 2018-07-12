@@ -56,7 +56,7 @@ nodeT find_point(nodeT* points, int count) {
 
 int main(int argc, char** argv) {
     srand(time(0));
-    int count = 6;
+    int count = 9;
     nodeT* points = malloc(count * sizeof(nodeT));
     char found = 0;
     nodeT point;
