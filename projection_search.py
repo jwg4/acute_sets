@@ -30,8 +30,8 @@ if __name__ == '__main__':
     for i in range(0, 100000):
         s5 = generate_valid_set(5, 10)
         if s5 is None:
-            logging.info("Couldnt find a valid set.")
             continue
+        logging.info("Found a valid set.")
         s4 = find_valid_projection(s5, 5, 4)
         if s4 is not None:
             break
