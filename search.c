@@ -24,6 +24,11 @@ nodeT find_point(nodeT* points, int count) {
 int main(int argc, char** argv) {
     srand(time(0));
     int count = 9;
+    if(argc>=2) {
+        count = atoi(argv[1]);
+        printf("Using %d as the number of points to search for", count);
+    }
+
     nodeT* points = malloc(count * sizeof(nodeT));
     char found = 0;
     nodeT point;
