@@ -25,6 +25,5 @@ def check_whole_set(points):
         for j in range(i + 1, n):
             for k in range(j + 1, n):
                 if not check_triplet(points[i], points[j], points[k]):
-                    print(points[i], points[j], points[k])
                     return False
     return True

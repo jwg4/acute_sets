@@ -1,7 +1,16 @@
-from timeit import timeit
+from timeit import timeit, repeat
 
 
-print("checking.check_angle")
-timeit('check_angle((1,2,3), (2,3,4), (3,4,5))', setup='from checking import check_angle')
-print("angle_routines.check.check_angle")
-timeit('check_angle((1,2,3), (2,3,4), (3,4,5))', setup='from angle_routines.check import check_angle')
+SETUP = """
+from %s import check_whole_set
+from example_set import get_example_set;
+x = get_example_set(9, 5);
+"""
+
+def time_function(module_name):
+    print(module_name)
+    results = repeat('check_whole_set(x)', setup=SETUP % module_name, repeat=100, number=10000)
+    print(sum(results))
+
+time_function("checking") 
+time_function("angle_routines.check") 
