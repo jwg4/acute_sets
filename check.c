@@ -6,7 +6,7 @@ char check_angle(nodeT a, nodeT b, nodeT c) {
     long ip_w = ((long)a.w - (long)b.w) * ((long)c.w - (long)b.w);
     long ip_x = ((long)a.x - (long)b.x) * ((long)c.x - (long)b.x);
     long ip_y = ((long)a.y - (long)b.y) * ((long)c.y - (long)b.y);
-    long ip_z = ((long)a.z - (long)b.z) * ((long)c.z - (long)b.x);
+    long ip_z = ((long)a.z - (long)b.z) * ((long)c.z - (long)b.z);
     long sum = ip_w + ip_x + ip_y + ip_z;
     return (sum > 0) ? 1 : 0;
 }
