@@ -26,7 +26,7 @@ int main(int argc, char** argv) {
     int count = 9;
     if(argc>=2) {
         count = atoi(argv[1]);
-        printf("Using %d as the number of points to search for", count);
+        printf("Using %d as the number of points to search for\n", count);
     }
 
     nodeT* points = malloc(count * sizeof(nodeT));
