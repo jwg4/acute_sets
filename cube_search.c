@@ -62,6 +62,11 @@ int find_acute_set(int dimension, int size){
 int main(int argc, char** argv){
     int dimension = 4;
     int size = 5;
+    if(argc<3) {
+        printf("Usage: cube_search <dimension> <size>\n");
+    }
+    dimension = atoi(argv[1]);
+    size = atoi(argv[2]);
 
     srand((unsigned) time(NULL));
 
