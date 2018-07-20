@@ -47,6 +47,9 @@ int find_acute_set(int dimension, int size){
             count++;
         } else {
             count--;
+            if (count < 3) {
+                count = 0;
+            }
         }
     }
     
