@@ -82,6 +82,6 @@ if __name__ == '__main__':
     ]
 
     s = initial
-    for i in range(0, 5):
+    for i in range(0, 10):
         s = find_small_overlap(s, s)
         print(s)
