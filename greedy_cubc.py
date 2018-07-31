@@ -58,7 +58,7 @@ def find_small_overlap(current, target):
     logging.info("Size of forbidden set is %d." % (len(forbidden), ))
     mx = 0
     candidate = []
-    for i in range(0, 10000):
+    for i in range(0, 3**n):
         flips = [random.choice([True, False]) for t in range(0, n)]
         flipped_target = [ tuple((a != b) for (a, b) in zip(flips, t)) for t in target ] 
         non_overlap = [f for f in flipped_target if f not in forbidden]
