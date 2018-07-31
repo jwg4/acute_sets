@@ -66,7 +66,10 @@ def find_small_overlap(current, target):
         if c > mx:
             mx = c
             candidate = non_overlap
-    return [tuple((False,) + g) for g in current] + [tuple((True,) + g) for g in candidate]
+    if candidate:
+        return [tuple((False,) + g) for g in current] + [tuple((True,) + g) for g in candidate]
+    else:
+        return [tuple((random.choice([True, False]),) + g) for g in current]
 
 
 if __name__ == '__main__':
